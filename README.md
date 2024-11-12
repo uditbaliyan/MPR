@@ -56,6 +56,12 @@ Visit `http://127.0.0.1:5000` to access the app.
 - **Pose Analysis**: Analyze poses via video input (`pose_analysis.html`)
 - **Recommendations**: View generated recommendations (`recommendations.html`)
 
+<video width="320" height="240" controls>
+  <source src="https://github.com/uditbaliyan/MPR/blob/main/Demo.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+
 ## License
 
 MIT License
