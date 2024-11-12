@@ -1,4 +1,4 @@
-```markdown
+
 # Flask App
 
 This Flask app provides routes for pose analysis and recommendations, using templates for HTML rendering and a modular structure for organization.
@@ -41,11 +41,11 @@ This Flask app provides routes for pose analysis and recommendations, using temp
 
 ### Running the Application
 
-Start the Flask server:
+To start the Flask application, run the following command:
+
 ```bash
-export FLASK_APP=__init__.py  # Use `set FLASK_APP=__init__.py` on Windows
-export FLASK_ENV=development
-flask run
+python run.py
+
 ```
 
 Visit `http://127.0.0.1:5000` to access the app.
@@ -59,6 +59,6 @@ Visit `http://127.0.0.1:5000` to access the app.
 ## License
 
 MIT License
-```
+
 
 This version focuses on setup, structure, and usage without additional explanation. Let me know if you'd like any further refinements!
