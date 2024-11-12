@@ -1,0 +1,26 @@
+
+
+<!-- pose_analysis.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6 text-center">Real-time Pose Analysis</h1>
+    
+    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="relative" style="padding-top: 75%;">  <!-- 4:3 Aspect Ratio -->
+            <img src="{{ url_for('video.video_feed') }}" class="absolute top-0 left-0 w-full h-full object-contain">
+        </div>
+    </div>
+
+    <div class="mt-6 bg-white rounded-xl shadow-md p-6">
+        <h2 class="text-xl font-semibold mb-4">Instructions</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Stand in a well-lit area facing the camera</li>
+            <li>Make sure your full body is visible</li>
+            <li>Try to maintain proper posture for accurate detection</li>
+            <li>Currently detecting: Tadasana (Mountain Pose) and Padahastasana (Forward Bend)</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

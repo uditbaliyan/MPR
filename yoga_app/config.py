@@ -1,0 +1,8 @@
+# yoga_app/config.py
+class Config:
+    DEBUG = True
+    CAMERA_WIDTH = 640
+    CAMERA_HEIGHT = 480
+    MIN_DETECTION_CONFIDENCE = 0.5
+    MIN_TRACKING_CONFIDENCE = 0.5
+    MODEL_COMPLEXITY = 1

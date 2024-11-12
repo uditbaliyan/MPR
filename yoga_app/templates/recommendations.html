@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="p-6">
+        <h1 class="text-2xl font-bold mb-6 text-center">Your Recommended Asanas</h1>
+        
+        <div class="mb-4 text-gray-600">
+            <p>Recommendations for: Age {{ age }}, Gender: {{ gender|title }}</p>
+        </div>
+
+        <ul class="divide-y divide-gray-200">
+            {% for asana in asanas %}
+            <li class="py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-1">
+                        <p class="text-lg font-medium text-gray-900">{{ asana }}</p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="mt-6">
+            <a href="{{ url_for('main.index') }}"
+                class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
