@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +25,12 @@
                     <div class="hidden md:flex items-center space-x-1">
                         <a href="{{ url_for('main.index') }}" class="py-5 px-3 text-white hover:text-gray-200">Home</a>
                         <a href="{{ url_for('main.pose_analysis') }}" class="py-5 px-3 text-white hover:text-gray-200">Pose Analysis</a>
+                        {% if session.get('user_id') %}
+                        <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('main.login') }}">Login</a></li>
+                        <li><a href="{{ url_for('main.register') }}">Register</a></li>
+                    {% endif %}
                     </div>
                 </div>
 
@@ -41,6 +49,12 @@
         <div class="mobile-menu hidden md:hidden">
             <a href="{{ url_for('main.index') }}" class="block py-2 px-4 text-white hover:bg-blue-700">Home</a>
             <a href="{{ url_for('main.pose_analysis') }}" class="block py-2 px-4 text-white hover:bg-blue-700">Pose Analysis</a>
+            {% if session.get('user_id') %}
+            <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('main.login') }}">Login</a></li>
+            <li><a href="{{ url_for('main.register') }}">Register</a></li>
+        {% endif %}
         </div>
     </nav>
 

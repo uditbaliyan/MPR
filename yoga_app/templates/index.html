@@ -4,6 +4,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if user %}
+<p>Hello, {{ user.username }}!</p>
+{% endif %}
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
     <h1 class="text-2xl font-bold mb-6 text-center">Welcome to Yoga Assistant</h1>
     

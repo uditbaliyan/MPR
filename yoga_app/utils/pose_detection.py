@@ -249,6 +249,21 @@ class PoseDetector:
         Returns:
             bool: True if the pose matches Balasana, otherwise False.
         """
+        # Function to calculate the Euclidean distance between two points
+        def calculate_distance(point1, point2):
+            """
+            Calculate the Euclidean distance between two points.
+
+            Parameters:
+                point1, point2: Objects with x, y, z coordinates.
+
+            Returns:
+                float: The distance between the points.
+            """
+            return ((point1.x - point2.x) ** 2 + 
+                    (point1.y - point2.y) ** 2 + 
+                    (point1.z - point2.z) ** 2) ** 0.5
+
         # Extract key landmarks
         left_ankle = landmarks[self.mp_pose.PoseLandmark.LEFT_ANKLE.value]
         right_ankle = landmarks[self.mp_pose.PoseLandmark.RIGHT_ANKLE.value]
@@ -270,14 +285,14 @@ class PoseDetector:
 
         # 2. Hips should be close to the heels
         hips_near_heels = (
-            self.calculate_distance(left_hip, left_ankle) < 0.2 and
-            self.calculate_distance(right_hip, right_ankle) < 0.2
+            calculate_distance(left_hip, left_ankle) < 0.2 and
+            calculate_distance(right_hip, right_ankle) < 0.2
         )
 
         # 3. Torso should be bent forward with nose close to the ground
         torso_bent_forward = (
-            self.calculate_distance(nose, left_knee) < 0.2 or
-            self.calculate_distance(nose, right_knee) < 0.2
+            calculate_distance(nose, left_knee) < 0.2 or
+            calculate_distance(nose, right_knee) < 0.2
         )
 
         # 4. Arms can be stretched forward or resting alongside the body
@@ -287,6 +302,7 @@ class PoseDetector:
         )
 
         return knees_on_ground and hips_near_heels and torso_bent_forward and arms_forward
+
 
     def is_setu_bandhasana(self, landmarks):
         """

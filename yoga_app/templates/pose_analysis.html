@@ -4,6 +4,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if user %}
+<p>Hello, {{ user.username }}!</p>
+{% endif %}
 <div class="max-w-4xl mx-auto">
     <h1 class="text-2xl font-bold mb-6 text-center">Real-time Pose Analysis</h1>
     
